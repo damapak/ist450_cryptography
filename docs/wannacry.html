@@ -59,18 +59,37 @@ class: center, middle
 * Begins encrypting all available disk drives (including network shares, USB, etc.)
 * Does the following simultaneously to propagate itself:
   * Checks IP address of infected machine and attempts to use port 445 to connect to all IP addresses in the same subnet
-` * Attempts to use port 445 to connect to a random IP address
+  * Attempts to use port 445 to connect to a random IP address
 * Installs DOUBLEPULSAR for all successful connections
 * After encryption complete, displays ransom note
 
 ---
       
 # SOLUTIONS
+* Patch/upgrade systems (MS17-010; Windows 10 was not vulnerable at the time)
+* Disable SMB (block incoming traffic to ports 139, 445)
+* Register the kill switch domain (kill switch included to detect sandboxing and prevent analysis); Domain was hardcoded, meaning once the domain was registered the malware could not infect any new machines
+* Get the RSA keys to decrypt (exploit windows implementation of RSA key generation)
+  * [github.com/aguinet/wannakey](https://github.com/aguinet/wannakey)
+  * Prior to windows 10, CryptDestroyKey and CryptReleaseContext did not erase the prime factors from memory before freeing the associated memory
+  * As long as the keys are still in memory, can get them and get the key to decrypt the files
+
       
 ---
       
 # IMPACT
-
+* 300,000+ devices infected
+* Shut down some hospitals, manufacturing plants; also affected FedEx, Telefonica
+* Hundreds of millions to billions of $ in damages
+* As of June 14, 2017, 327 payments totaling $130,634.77 had been transferred to the bitcoin address
+* Apparently state-sponsored:  Attributed to North Korea
+* Researcher who registered the kill switch domain was arrested a few months later – after Def Con 2017, in August (on unrelated charges of writing Kronos banking malware); case is ongoing
+* Many blame the NSA, as they:
+  * Developed the exploits used by the attack
+  * Did not disclose the exploits until after they had been released into the wild
+* Follow-up attacks:
+  * NotPetya (Ukraine)
+  * EternalRocks (used ETERNALBLUE & DOUBLEPULSAR, plus 5 other NSA exploits)
 
 
     </textarea>
