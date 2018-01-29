@@ -44,7 +44,23 @@ class: center, middle
 
 ---
 
-# Introduction
+# WHAT DID IT DO?
+* Encrypted disk drives
+* Demanded ransom in bitcoin to decrypt files (~$300)
+      
+---
+      
+# HOW DID IT WORK?
+      
+---
+      
+# SOLUTIONS
+      
+---
+      
+# IMPACT
+
+
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
