@@ -51,7 +51,18 @@ class: center, middle
 ---
       
 # HOW DID IT WORK?
-      
+* Used ETERNALBLUE to exploit SMB and access devices
+* Once compromised with ETERNALBLUE, installed DOUBLEPULSAR to deliver the payload (if DOUBLEPULSAR already installed, used existing install to execute code)
+* Attempts to connect to kill switch domain
+  * If found, stops execution of code
+  * If not found, proceeds with code execution
+* Begins encrypting all available disk drives (including network shares, USB, etc.)
+* Does the following simultaneously to propagate itself:
+  * Checks IP address of infected machine and attempts to use port 445 to connect to all IP addresses in the same subnet
+` * Attempts to use port 445 to connect to a random IP address
+* Installs DOUBLEPULSAR for all successful connections
+* After encryption complete, displays ransom note
+
 ---
       
 # SOLUTIONS
