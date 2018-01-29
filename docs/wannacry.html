@@ -68,13 +68,13 @@ class: center, middle
 ---
       
 # SOLUTIONS
-* Patch/upgrade systems (MS17-010; Windows 10 was not vulnerable at the time)
-* Disable SMB (block incoming traffic to ports 139, 445)
-* Register the kill switch domain (kill switch included to detect sandboxing and prevent analysis); Domain was hardcoded, meaning once the domain was registered the malware could not infect any new machines
-* Get the RSA keys to decrypt (exploit windows implementation of RSA key generation)
-  * [github.com/aguinet/wannakey](https://github.com/aguinet/wannakey)
-  * Prior to windows 10, CryptDestroyKey and CryptReleaseContext did not erase the prime factors from memory before freeing the associated memory
-  * As long as the keys are still in memory, can get them and get the key to decrypt the files
+- Patch/upgrade systems (MS17-010; Windows 10 was not vulnerable at the time)
+- Disable SMB (block incoming traffic to ports 139, 445)
+- Register the kill switch domain (kill switch included to detect sandboxing and prevent analysis); Domain was hardcoded, meaning once the domain was registered the malware could not infect any new machines
+- Get the RSA keys to decrypt (exploit windows implementation of RSA key generation)
+  - [github.com/aguinet/wannakey](https://github.com/aguinet/wannakey)
+  - Prior to windows 10, CryptDestroyKey and CryptReleaseContext did not erase the prime factors from memory before freeing the associated memory
+  - As long as the primes are still in memory, can get them and the key to decrypt the files
 
       
 ---
